@@ -118,6 +118,7 @@ export default {
                 state.guestPerks = res.data.guestPerks;
             }
 
+            let sw = false;
             const interval = setInterval(() => {
                 axios.post(`${state.apiUrl}/battle-info/`, { id: state.id }).then(res => {
                     if (!res.data.open) {
@@ -125,8 +126,9 @@ export default {
                             state.hostPerks = res.data.hostPerks;
                             state.guestPerks = res.data.guestPerks;
                             clearInterval(interval);
-                            winner.value = calculateWinner(state.rol, res.data.hostPerks, res.data.guestPerks);
+                            winner.value = calculateWinner(sw ? state.rol : state.rol === 'host' ? 'guest' : 'host', res.data.hostPerks, res.data.guestPerks);
                         }
+                        sw = true;
                     }
                 });
             }, 1000);
