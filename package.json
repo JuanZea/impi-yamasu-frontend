@@ -1,0 +1,41 @@
+{
+  "name": "impi-yamasu-frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "npx prettier --write .",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanZea/impi-yamasu-frontend.git"
+  },
+  "keywords": [
+    "game",
+    "strategic",
+    "battle",
+    "multiplayer",
+    "by",
+    "turns"
+  ],
+  "author": "JuanZea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuanZea/impi-yamasu-frontend/issues"
+  },
+  "homepage": "https://github.com/JuanZea/impi-yamasu-frontend#readme",
+  "dependencies": {
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.4",
+    "tailwindcss": "^3.0.18",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2",
+    "vue-tsc": "^0.29.8"
+  }
+}
