@@ -48,7 +48,9 @@ export default {
 
         const create = () => {
             axios.post(`${state.apiUrl}/create-battle/`, { id: id.value, player: player.value }).then(() => {
-                state.view = 'inGame';
+                state.view = 'connecting';
+                state.id = id.value;
+                state.rol = 'host';
                 state.host = player.value;
             });
 
@@ -56,7 +58,7 @@ export default {
                 axios.post(`${state.apiUrl}/battle-info/`, { id: id.value }).then(res => {
                     if (!res.data.open) {
                         state.guest = res.data.guestPlayer;
-                        console.log(state)
+                        state.view = 'perks'
                         clearInterval(interval);
                     }
                 });
@@ -67,7 +69,9 @@ export default {
             axios
                 .post(`${state.apiUrl}/join-battle/`, { id: id.value, player: player.value })
                 .then(res => {
-                    state.view = 'inGame';
+                    state.id = id.value;
+                    state.view = 'perks';
+                    state.rol = 'guest';
                     state.host = res.data.hostPlayer;
                     state.guest = player.value;
                 })
